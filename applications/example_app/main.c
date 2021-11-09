@@ -1,10 +1,17 @@
 /* vim: set sw=2 expandtab tw=80: */
 
 #include <stdio.h>
-#include "example_driver.h"
+#include <tock.h>
+#include <hello.h>
 
 int main(void) {
-  printf ("Hello World!\r\n");
-  example_driver_action ();
+  if (driver_exists (DRIVER_NUM_HELLO)) {
+    printf("Hello driver is present\n");
+    hello_print();
+  }
+  else
+  {
+    printf("Hello driver is not present\n");
+  }
   return 0;
 }
